@@ -1,0 +1,28 @@
+name: Build and Package for macOS
+
+on:
+  push:
+    branches:
+      - main  # 根据你仓库实际的默认分支修改，比如如果是master分支就写master
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.13'  # 指定Python版本，这里使用3.x系列版本
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller
+        pip install PyQt5
+        pip install clipboard
+    - name: Build the application
+      run: pyinstaller --onefile --windowed color_picker.py
+    - name: Archive the application
+      uses: actions/upload-artifact@v2
+      with:
+        name: ColorPickerApp-macos
+        path: dist/color_picker  # 根据实际打包后的可执行文件路径和名称修改
