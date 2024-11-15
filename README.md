@@ -1,3 +1,3 @@
 # color_picker
 test program
-do anything.
+I want to learn to use it, but I don't know how.
