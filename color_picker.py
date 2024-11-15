@@ -12,7 +12,7 @@ class ColorPicker(QWidget):
         # 设置窗口标题
         self.setWindowTitle("Color Picker")
         # 设置窗口大小
-        self.setFixedSize(230, 150)
+        self.setFixedSize(220, 150)
 
         # 创建用于显示颜色信息的标签
         self.color_label = QLabel(self)
